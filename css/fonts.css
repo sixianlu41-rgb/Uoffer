@@ -1,0 +1,10 @@
+/* English/numerals: Sofia Pro. Chinese: Source Han Sans CN (思源黑体). */
+@font-face{font-family:"Sofia Pro";src:url("../assets/fonts/sofia-pro-regular.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0000-024F,U+1E00-1EFF;}
+@font-face{font-family:"Sofia Pro";src:url("../assets/fonts/sofia-pro-medium.woff2") format("woff2");font-style:normal;font-weight:500;font-display:swap;unicode-range:U+0000-024F,U+1E00-1EFF;}
+@font-face{font-family:"Sofia Pro";src:url("../assets/fonts/sofia-pro-semi-bold.woff2") format("woff2");font-style:normal;font-weight:600;font-display:swap;unicode-range:U+0000-024F,U+1E00-1EFF;}
+@font-face{font-family:"Sofia Pro";src:url("../assets/fonts/sofia-pro-bold.woff2") format("woff2");font-style:normal;font-weight:700;font-display:swap;unicode-range:U+0000-024F,U+1E00-1EFF;}
+@font-face{font-family:"Sofia Pro";src:url("../assets/fonts/sofia-pro-black.woff2") format("woff2");font-style:normal;font-weight:800 900;font-display:swap;unicode-range:U+0000-024F,U+1E00-1EFF;}
+@font-face{font-family:"Source Han Sans CN";src:url("../assets/fonts/source-han-sans-cn-regular.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap;}
+@font-face{font-family:"Source Han Sans CN";src:url("../assets/fonts/source-han-sans-cn-medium.woff2") format("woff2");font-style:normal;font-weight:500 600;font-display:swap;}
+@font-face{font-family:"Source Han Sans CN";src:url("../assets/fonts/source-han-sans-cn-bold.woff2") format("woff2");font-style:normal;font-weight:700;font-display:swap;}
+@font-face{font-family:"Source Han Sans CN";src:url("../assets/fonts/source-han-sans-cn-heavy.woff2") format("woff2");font-style:normal;font-weight:800 900;font-display:swap;}

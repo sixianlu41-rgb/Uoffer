@@ -1,0 +1,783 @@
+@import url("fonts.css?v=1");
+/* ==========================================================================
+   Uoffer — AI 训练营  静态页面样式
+   设计稿：1920px 宽  /  内容区：1200px 居中
+   所有 logo / banner / icon 均为外部图片，本文件不绘制任何图形
+   目录：
+   1. 变量与基础重置
+   2. 通用组件（按钮 / Logo）
+   3. 顶部导航
+   4. Banner 主视觉
+   5. 课程卡片
+   6. 页脚
+   7. 响应式
+   ========================================================================== */
+
+/* ---------- 1. 变量与基础重置 ---------- */
+:root {
+  /* 设计稿基准 */
+  --design-width: 1920px;
+  --content-width: 1200px;
+
+  /* 颜色 —— 品牌蓝取自 logo (#004A9B) */
+  --brand-blue:    #004a9b;
+  --nav-bg:        #ffffff;
+  --orange:        #f47930;
+  --footer-bg:     #1b2e55;
+  --footer-bg-2:   #152544;
+  --ink:           #1a1a2e;
+  --ink-soft:      #4a4a5e;
+  --ink-mute:      #6b6b80;
+  --line:          #e6e8f0;
+
+  --radius:        14px;
+  --shadow-card:   0 4px 24px rgba(26, 26, 60, .07);
+  --shadow-hover:  0 14px 40px rgba(60, 40, 160, .16);
+
+  --font: "Sofia Pro", "Source Han Sans CN", sans-serif;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--ink);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, p, ul, figure { margin: 0; }
+ul { list-style: none; padding: 0; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { font: inherit; cursor: pointer; border: 0; background: none; }
+
+.skip-link {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--orange); color: #fff;
+  padding: 10px 16px; border-radius: 0 0 8px 0; z-index: 999;
+}
+.skip-link:focus { left: 0; }
+
+/* ---------- 2. 通用组件 ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 44px;
+  padding: 0 28px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: .5px;
+  white-space: nowrap;
+  transition: transform .2s ease, box-shadow .2s ease,
+              background-color .2s ease, color .2s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+
+/* 主按钮（注册/预约、查看课程详情） */
+.btn--primary,
+.btn--orange {
+  background: linear-gradient(135deg, #ffa233, var(--orange));
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(255, 138, 0, .32);
+}
+.btn--primary:hover,
+.btn--orange:hover { box-shadow: 0 8px 22px rgba(255, 138, 0, .42); }
+
+/* Logo（使用图片） */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+}
+.logo__img {
+  height: 38px;
+  width: auto;
+}
+
+/* ---------- 3. 顶部导航 ---------- */
+/* 背景层固定 1920 宽并居中：宽屏下左右留白，不随视口拉伸 */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  isolation: isolate; /* 建立层叠上下文 */
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 2px 12px rgba(0, 74, 155, .06);
+}
+.topbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: var(--design-width);
+  max-width: 100%;
+  margin-inline: auto;
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--line);
+  z-index: -1;
+}
+/* 容器宽 1920（设计稿全宽），内部内容用 padding 居中保持 1200 内容区 */
+.topbar__inner {
+  position: relative;
+  max-width: var(--design-width);
+  margin: 0 auto;
+  padding-inline: max(24px, calc((100% - var(--content-width)) / 2));
+  height: 80px;
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.nav { flex: 1; }
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav__list a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 80px;
+  padding: 0 16px;
+  font-size: 15px;
+  color: #33334a;
+  transition: color .2s ease;
+}
+.nav__list a::after {
+  content: "";
+  position: absolute;
+  left: 16px; right: 16px; bottom: 0;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background: var(--brand-blue);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform .25s ease;
+}
+.nav__list a:hover { color: var(--brand-blue); }
+.nav__list a:hover::after { transform: scaleX(1); }
+
+/* 激活 / 选中态：使用 logo 中的品牌蓝 */
+.nav__list a.is-active,
+.nav__list a[aria-current="page"] {
+  color: var(--brand-blue);
+  font-weight: 600;
+}
+.nav__list a.is-active::after,
+.nav__list a[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+.nav__link.is-hot { color: var(--brand-blue); }
+.nav__link.is-hot::after { background: var(--brand-blue); }
+
+.tag-new {
+  font-size: 10px;
+  line-height: 1;
+  padding: 2px 4px;
+  border-radius: 3px;
+  background: #ff4d6d;
+  color: #fff;
+  transform: translateY(-6px);
+  font-weight: 700;
+}
+
+/* 导航小图标（图片） */
+.nav__icon {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  object-fit: contain;
+}
+
+/* ---------- 导航二级菜单（定制服务） ---------- */
+.nav__item {
+  position: relative;
+}
+/* 触发器热区：让整个 80px 高度都可悬停，避免鼠标下滑时"断层" */
+.nav__item.has-menu > .nav__link::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 80px;
+}
+/* 向下箭头（纯 CSS 绘制，不使用图片/SVG） */
+.nav__caret {
+  width: 0;
+  height: 0;
+  flex: none;
+  margin-left: 3px;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid currentColor;
+  opacity: .5;
+  transition: transform .25s ease, opacity .2s ease;
+}
+.nav__item.has-menu:hover .nav__caret,
+.nav__item.has-menu.is-open .nav__caret {
+  transform: rotate(180deg);
+  opacity: .9;
+}
+
+/* ---- 下拉面板 ---- */
+.nav__menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, 10px);
+  width: 480px;
+  padding: 8px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 16px 44px rgba(26, 26, 60, .16);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .22s ease, transform .22s ease, visibility .22s;
+  z-index: 20;
+}
+/* 顶部小箭头，指向触发器 */
+.nav__menu::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  background: #fff;
+  border-left: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+  transform: rotate(45deg);
+}
+.nav__item.has-menu:hover .nav__menu,
+.nav__item.has-menu:focus-within .nav__menu,
+.nav__item.has-menu.is-open .nav__menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
+.nav__sublist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  /* 一行 2 个，共 5 项 → 2+2+1，AI训练营落在第 3 行 */
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2px;
+}
+/* 网格布局下不再需要行分隔线 */
+.nav__sublist li + li {
+  border-top: 0;
+}
+
+/* 覆盖 .nav__list a 的扁平样式，避免继承顶部导航的 80px 高度与蓝色下划线 */
+.nav__sublist a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: auto;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  color: var(--ink);
+  transition: background .2s ease, color .2s ease;
+}
+.nav__sublist a::after {
+  content: none;
+}
+.nav__sublist a:hover,
+.nav__sublist a:focus-visible {
+  background: #f3f7fd;
+  color: var(--brand-blue);
+  outline: none;
+}
+/* 左侧图标：图片占位，尺寸由 CSS 统一控制，图标文件由你自行替换 */
+.nav__subicon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  flex: none;
+  border-radius: 9px;
+  background: #eef3fb;
+  transition: background .2s ease;
+}
+.nav__subicon img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  display: block;
+}
+/* 悬停只做浅色底变化，不用深色底，避免盖住你自带的彩色图标 */
+.nav__sublist a:hover .nav__subicon,
+.nav__sublist a:focus-visible .nav__subicon {
+  background: #dfe9f8;
+}
+/* 右侧文字 */
+.nav__subtext {
+  min-width: 0;
+}
+.nav__subtitle {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  color: inherit;
+  line-height: 1.4;
+}
+.nav__subdesc {
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--ink-mute);
+  transition: color .2s ease;
+}
+.nav__sublist a:hover .nav__subdesc,
+.nav__sublist a:focus-visible .nav__subdesc {
+  color: #5a7fa8;
+}
+/* 键盘焦点圈 */
+.nav__item.has-menu > .nav__link:focus-visible {
+  outline: 2px solid var(--brand-blue);
+  outline-offset: -4px;
+  border-radius: 4px;
+}
+
+.topbar__right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* 购物车图标（图片） */
+.icon-btn {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  transition: background-color .2s ease;
+}
+.icon-btn:hover { background: #f2f6fb; }
+.icon-btn__img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+/* 客服热线 */
+.service {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 20px;
+  border: 1px solid #e9e9e9;
+  border-radius: 999px;
+  background: #fff;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.service:hover {
+  border-color: var(--brand-blue);
+  box-shadow: 0 2px 10px rgba(0, 74, 155, .1);
+}
+.service__icon {
+  width: 28px;
+  height: 28px;
+  flex: none;
+  object-fit: contain;
+}
+.service__text { display: flex; flex-direction: column; line-height: 1.3; }
+.service__label { font-size: 12px; color: var(--ink-mute); }
+.service__tel { font-size: 15px; font-weight: 700; color: var(--brand-blue); }
+
+/* ---------- 4. Banner 主视觉 ---------- */
+.hero {
+  /* 高度由 banner 图片自身比例决定（1920 宽 / 604 高 @2x = 302 高） */
+  background: #0b1c3d;
+}
+
+/* Banner 图片：按 1920 设计稿宽度满宽显示，不裁切 */
+.hero__banner {
+  display: block;
+  width: var(--design-width);
+  max-width: none;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* ---------- 5. 课程卡片 ---------- */
+.courses {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 70px 0 90px;
+}
+.courses__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(0, 74, 155, .3);
+}
+
+.card__media {
+  position: relative;
+  aspect-ratio: 585 / 300;
+  overflow: hidden;
+  background: #eef0fb;
+}
+.card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .5s ease;
+}
+.card:hover .card__media img { transform: scale(1.04); }
+
+.card__tag {
+  position: absolute;
+  top: 14px; right: 14px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #1f7afe, #7a2dfe);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .4px;
+  box-shadow: 0 4px 12px rgba(31, 122, 254, .35);
+}
+
+.card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 26px 28px 24px;
+}
+
+.card__title {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.5;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+
+.card__desc {
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--ink-soft);
+  margin-bottom: 20px;
+}
+
+.card__features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  margin-bottom: 26px;
+}
+.card__features li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.feat__icon {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  object-fit: contain;
+}
+
+.card__foot {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.price {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  color: var(--orange);
+  font-weight: 800;
+}
+.price__cur    { font-size: 20px; }
+.price__num    { font-size: 34px; line-height: 1; letter-spacing: -.5px; }
+.price__suffix { font-size: 18px; }
+
+/* ---------- 6. 页脚 ---------- */
+/* 背景层固定 1920 宽并居中：宽屏下左右留白，不随视口拉伸 */
+.footer {
+  position: relative;
+  isolation: isolate; /* 建立层叠上下文，避免背景伪元素被主内容覆盖 */
+  color: #cbd5ec;
+  padding: 56px 0 48px;
+}
+.footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: var(--design-width);
+  max-width: 100%;
+  margin-inline: auto;
+  background: linear-gradient(160deg, var(--footer-bg) 0%, var(--footer-bg-2) 100%);
+  z-index: -1;
+}
+.footer__inner {
+  position: relative;
+  max-width: var(--design-width);
+  margin: 0 auto;
+  padding-inline: max(24px, calc((100% - var(--content-width)) / 2));
+}
+
+.footer__top {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.footer__top .logo__img { height: 36px; }
+
+.footer__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 36px;
+}
+.footer__nav a {
+  font-size: 15px;
+  color: #d7deee;
+  transition: color .2s ease;
+}
+.footer__nav a:hover { color: #fff; }
+
+.lang {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border: 1px solid rgba(255, 255, 255, .22);
+  border-radius: 999px;
+  color: #d7deee;
+  font-size: 13px;
+  transition: border-color .2s ease, color .2s ease;
+}
+.lang:hover { border-color: #fff; color: #fff; }
+.lang__icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.footer__rule {
+  border: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, .13);
+  margin: 26px 0 28px;
+}
+
+.footer__mid {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.footer__info { flex: 1 1 420px; min-width: 0; }
+
+.footer__links {
+  font-size: 14px;
+  line-height: 1.9;
+  color: #b9c4dd;
+  margin-bottom: 6px;
+}
+.footer__links a {
+  color: #d7deee;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color .2s ease, border-color .2s ease;
+}
+.footer__links a:hover {
+  color: var(--orange);
+  border-bottom-color: var(--orange);
+}
+.footer__links a:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.footer__copy {
+  font-size: 13px;
+  color: #8e9cba;
+  margin-bottom: 24px;
+}
+
+.hotline {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 24px 8px 10px;
+  border: 1px solid rgba(255, 255, 255, .2);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .04);
+}
+
+.hotline__icon img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+.hotline__text { font-size: 15px; color: #dbe3f4; }
+.hotline__text b { color: #fff; font-size: 17px; letter-spacing: .5px; }
+
+.social {
+  display: flex;
+  gap: 14px;
+  padding-top: 6px;
+}
+.social a {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .12);
+  transition: background-color .2s ease, transform .2s ease;
+}
+.social a:hover { background: var(--orange); transform: translateY(-2px); }
+.social img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.qr {
+  display: flex;
+  gap: 28px;
+}
+.qr__item { margin: 0; text-align: center; }
+.qr__item img {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 6px;
+  padding: 5px;
+}
+.qr__item figcaption {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #b9c4dd;
+}
+
+.badges {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-top: 44px;
+  flex-wrap: wrap;
+}
+.badges img {
+  width: 700px;
+  height: 126px;
+  object-fit: contain;
+  opacity: .92;
+  transition: opacity .2s ease, transform .2s ease;
+}
+.badges img:hover { opacity: 1; transform: translateY(-2px); }
+
+/* ---------- 7. 响应式 ---------- */
+@media (max-width: 1280px) {
+  .nav__list a { padding: 0 10px; font-size: 14px; }
+  .nav__list a::after { left: 10px; right: 10px; }
+  .service { display: none; }
+  .courses { padding-left: 24px; padding-right: 24px; }
+}
+
+/* 移动端：二级菜单靠点击展开 */
+@media (hover: none), (max-width: 1280px) {
+  .nav__menu {
+    left: 50%;
+    width: 460px;
+  }
+}
+
+@media (max-width: 980px) {
+  .topbar__inner { height: 64px; gap: 16px; }
+  .nav__list a { height: 64px; }
+  .nav__list a::after { bottom: 0; }
+  /* 导航高度变化时同步热区高度 */
+  .nav__item.has-menu > .nav__link::before { height: 64px; }
+  .nav__menu { width: 400px; }
+  .nav__subicon { width: 32px; height: 32px; border-radius: 8px; }
+  .nav__subicon img { width: 16px; height: 16px; }
+  .nav__subtitle { font-size: 14px; }
+  .courses__grid { grid-template-columns: 1fr; }
+  .footer__mid { justify-content: center; text-align: center; }
+  .footer__info { flex-basis: 100%; }
+  .social { justify-content: center; }
+  .badges { justify-content: center; }
+  .badges img { width: 100%; max-width: 700px; height: auto; }
+}
+
+@media (max-width: 760px) {
+  .nav { display: none; }
+  .hero__banner { width: 100%; }
+  .courses { padding: 40px 16px 60px; }
+  .card__body { padding: 22px 20px 20px; }
+  .card__title { font-size: 18px; }
+  .card__foot { flex-direction: column; align-items: stretch; gap: 14px; }
+  .btn--orange { width: 100%; }
+  .footer { padding: 40px 0; }
+  .qr { gap: 18px; }
+  .qr__item img { width: 92px; height: 92px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 全站英文使用Sofia Pro，中文使用思源黑体，表单与按钮继承页面字体。 */
+html{font-family:var(--font)}
+button,input,select,textarea{font-family:inherit}
+/* 同一字体下所有按钮统一采用居中布局，文字做轻微基线补偿。 */
+.btn{display:inline-flex;align-items:center;justify-content:center;text-align:center;line-height:1.2;padding-block:0}
+.button-label{display:block;line-height:1.35;white-space:nowrap;transform:translateY(.055em);text-align:center}

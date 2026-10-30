@@ -1,0 +1,166 @@
+/* FDE详情：3840×12470原稿，以1920 CSS像素对照；共享导航/页脚见course-detail.css。 */
+.fde-page{font-family:var(--font);font-synthesis:none;background:#fff;color:#282828}
+.fde-page .wrap{width:1200px;max-width:calc(100% - 48px);margin-inline:auto}
+.fde-page main h1,.fde-page main h2{font-size:40px;line-height:1.4;font-weight:600;letter-spacing:0;text-align:center;color:#282828}
+.fde-page main p{line-height:1.8}
+.fde-hero{position:relative;max-width:1920px;margin:auto}.fde-hero>img,.audience>img{display:block;width:100%;height:auto}
+.hero-buy{position:absolute;left:20.2%;top:75%;width:8%;height:11%;border-radius:40px}
+.fde-tabs{position:sticky;top:80px;background:#fff;z-index:90}
+.fde-tabs>div{width:1200px;max-width:calc(100% - 48px);margin:auto;height:88px;border-bottom:1px solid #ddd;display:flex;justify-content:center;gap:40px;overflow-x:auto;scrollbar-width:none}
+.fde-tabs a{position:relative;display:flex;align-items:center;flex:none;font-size:16px;white-space:nowrap;color:#444}
+.fde-tabs a:after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:#1e98de;transform:scaleX(0)}
+.fde-tabs a.is-active,.fde-tabs a:hover{color:#1e98de}.fde-tabs a.is-active:after{transform:scaleX(1)}
+.fde-page .intro{padding:90px 0 86px;min-height:900px}
+.intro h1{margin:0 0 36px}.intro>p{font-size:16px;color:#777;text-align:center;line-height:2!important}
+.fde-page .intro h2{margin:80px 0}
+.outcomes{display:grid;grid-template-columns:repeat(18,minmax(0,1fr));gap:20px 16px}
+.outcomes article{grid-column:span 9;position:relative;display:flex;align-items:center;gap:16px;padding:12px 28px;min-height:110px;border:1px solid #e8e8e8;border-radius:60px;box-shadow:0 1px 5px #00000005}
+.outcomes article:nth-child(3){grid-column:4/span 12;min-height:84px}.outcomes article:nth-child(4){grid-column:1/span 8;min-height:84px}.outcomes article:nth-child(5){grid-column:9/span 10;min-height:84px}
+.outcomes img{width:76px;height:76px;object-fit:contain;flex:none}.outcomes article:nth-child(n+3) img{height:60px}
+.outcomes h3,.modules h3{font-size:20px;line-height:1.4;font-weight:500;margin:0 0 5px}
+.outcomes p{font-size:14px;color:#888;line-height:1.8!important}
+.outline{background:#f5f5f5;padding:90px 0 100px}.caption{font-size:16px;text-align:center;color:#888;margin:6px 0 48px}
+.modules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}.modules article{display:flex;align-items:center;gap:16px;padding:20px 24px;min-height:136px;background:white;border-radius:8px}.modules article:nth-child(3){grid-column:1/-1;width:67%;justify-self:center}.modules img{width:90px;height:90px;object-fit:contain;flex:none}.modules p{font-size:15px;line-height:1.6!important;color:#888}
+.audience{max-width:1920px;margin:auto}
+.fde-page .mentor{padding:90px 0 66px}.mentor>h2{margin-bottom:44px}.mentor>article{padding:52px 88px 62px;min-height:373px;border-radius:22px;background:#f1f3ff}
+.mentor h3{font-size:40px;font-weight:600;line-height:1.4;margin-bottom:24px;color:#5664ff}.mentor small{color:#444;font-size:18px;font-weight:400;margin-left:10px}.mentor p{font-size:14px;line-height:1.85!important;color:#777;margin-bottom:18px}.tags{display:flex;flex-wrap:wrap;gap:30px;margin-top:30px}.tags span{font-size:14px;color:#355592;background:linear-gradient(100deg,#b6d6fc,#d2b3f5);border-radius:24px;padding:8px 22px}
+.information{padding:40px 0 117px;background:linear-gradient(#fff 30%,#f5f5f5)}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:64px 30px;margin:70px 0 126px}
+.facts article{display:flex;align-items:center;gap:14px;min-height:56px}.facts img{width:42px;height:42px;object-fit:contain;flex:none}.facts small{font-size:14px;line-height:1.5;color:#999;display:block;margin-bottom:4px}.facts strong{display:block;font-size:20px;font-weight:500;line-height:1.4}
+.plans{display:grid;grid-template-columns:464px minmax(0,1fr);gap:24px;margin-top:50px}.plan{height:390px;display:flex;flex-direction:column;border:1px solid #e7e7e7;border-radius:10px;overflow:hidden;background:white;box-shadow:0 2px 5px #00000008}
+.plan header{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:80px;padding:20px 24px;color:white;background:linear-gradient(110deg,#1f7afe,#7a2dfe)}
+.plan header h3,.plan header strong{font-size:28px;line-height:1.4}.plan header h3{font-weight:500}.plan header strong{font-weight:700}.plan:nth-child(2) header{background:linear-gradient(100deg,#ffb900,#ff7c20)}
+.plan ul{padding:22px 24px;flex:1}.plan li{font-size:16px;line-height:1.8;color:#777;padding:3px 0 3px 22px;position:relative}.plan li:before{content:'✓';position:absolute;left:0;top:9px;width:14px;height:14px;border-radius:50%;background:#19bfa0;color:white;font:10px/14px var(--font);text-align:center}
+.plan-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;border-top:1px solid #f0f0f0;margin-top:auto;padding:18px 24px;font-size:16px;min-height:80px}
+.plan-foot a{font-size:20px;padding:8px 22px;background:linear-gradient(100deg,#1f7afe,#7a2dfe);color:white;border-radius:30px;white-space:nowrap}.plan:nth-child(2) .plan-foot a{background:linear-gradient(100deg,#ffb900,#ff7c20)}
+.elite-body{position:relative;display:grid;grid-template-columns:1fr 1fr;flex:1;min-height:0}.elite-body ul{padding:22px 12px 10px 24px}.elite-body li{font-size:15px}.elite-qr{position:absolute;right:30px;bottom:0;width:120px;height:144px;object-fit:contain;background:white}
+.fde-page .faq{padding:106px 0 81px}.fde-page .faq>h2{text-align:left;margin-bottom:48px}.faq-list{border-top:1px solid #bbb;padding:0;margin:0;list-style:none}.faq-list>li{border-bottom:1px solid #ddd}.faq-list details{padding:24px 0 20px;min-height:100px}.faq-list summary{font-size:15px;font-weight:500;line-height:1.8;list-style:none;display:flex;justify-content:space-between;cursor:pointer}.faq-list summary::-webkit-details-marker{display:none}.faq-list p{font-size:14px;color:#888;line-height:1.7!important;margin-top:5px}.faq-list .cd-faq__mark{font-size:16px;flex:none;margin-left:12px}
+.fde-enroll{position:fixed;bottom:0;left:0;right:0;z-index:110;padding:16px 0;background:linear-gradient(100deg,#1e7df5,#8724ff);color:white}.fde-enroll[hidden]{display:none}.fde-enroll>.wrap{min-height:94px;display:flex;align-items:center;justify-content:space-between;gap:40px}.fde-enroll h3{font-size:26px;font-weight:600;line-height:1.4;color:#ffce00}.fde-enroll p,.fde-enroll small{font-size:14px;line-height:1.8;color:#ddd}.fde-enroll strong{display:block;text-align:center;font-size:34px;font-weight:700;color:#ffcf00;line-height:1.1}.fde-enroll a{display:inline-block;border-radius:40px;background:linear-gradient(100deg,#ffce00,#ffae00);font-size:22px;padding:6px 24px;color:white}.fde-enroll__close{position:absolute;right:18px;top:8px;font-size:24px;color:#ffffff90;padding:4px 8px;cursor:pointer}
+.fde-enroll__close:hover{color:white}.fde-page main [id]{scroll-margin-top:185px}a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid #168cff;outline-offset:4px}
+@media(max-width:1280px){.plans{grid-template-columns:.8fr 1.2fr}.fde-tabs>div{gap:24px}.outcomes article{padding:12px 18px}.outcomes img{width:60px}.modules img{width:70px;height:70px}.elite-qr{right:16px}}
+@media(max-width:980px){.fde-page main h1,.fde-page main h2{font-size:28px}.fde-tabs{top:64px}.fde-tabs>div{height:64px;justify-content:flex-start}.fde-page .intro,.fde-page .mentor,.fde-page .faq,.outline{min-height:0;padding:48px 0}.fde-page .intro h2{margin:48px 0 32px}.outcomes{display:flex;flex-direction:column}.outcomes article{min-height:84px}.modules{grid-template-columns:1fr}.modules article:nth-child(3){grid-column:auto;width:100%}.mentor>article{padding:30px;min-height:0}.mentor h3{font-size:30px}.mentor small{display:block;margin:8px 0}.tags{gap:12px}.facts{grid-template-columns:repeat(2,minmax(0,1fr));margin:40px 0 60px;gap:30px}.plans{grid-template-columns:1fr}.plan{height:auto;min-height:360px}.elite-body{min-height:230px}.fde-enroll h3{font-size:20px}.fde-enroll>.wrap{gap:16px;min-height:80px}.fde-enroll a{font-size:17px;padding:6px 16px}.fde-enroll strong{font-size:26px}.information{padding-bottom:60px}}
+@media(max-width:600px){.fde-page .wrap{max-width:calc(100% - 32px)}.facts{grid-template-columns:1fr}.fde-enroll>.wrap{display:block;min-height:0}.fde-enroll h3{font-size:18px;padding-right:24px}.fde-enroll>.wrap>div:first-child p{display:none}.fde-enroll>.wrap>div:last-child{display:flex;align-items:center;justify-content:space-between;margin-top:10px;gap:10px}.fde-enroll strong{font-size:22px}.fde-enroll a{font-size:15px;padding:5px 12px}.fde-enroll__close{right:6px;top:2px}.plan li{font-size:14px}.elite-body li{font-size:13px}.elite-body ul{padding-left:12px}.elite-qr{width:96px;height:115px}.plan-foot a{font-size:18px}.outcomes h3,.modules h3{font-size:18px}}
+/* 第二轮叠图校准：修正累计高度误差。 */
+@media(min-width:981px){
+ .fde-page .intro{padding-bottom:84px}
+ .fde-page .caption{line-height:1.5}
+ .fde-page .facts{margin-bottom:101px}
+ .fde-page .faq-list details{height:99px;min-height:0;padding:23px 0 20px}
+ .fde-page .faq-list summary{line-height:27px}
+}
+@media(min-width:981px){
+ .fde-page .information{padding-bottom:115px}
+ .fde-page .footer{min-height:604px}
+ .fde-page .elite-qr{width:130px;height:160px;right:28px;bottom:-12px;background:transparent}
+ .fde-page .facts article:nth-child(5) strong{white-space:nowrap;font-size:19px;letter-spacing:-.2px}
+}
+/* 第三轮：按原稿校正小字号文本、FAQ起点及页脚热线比例。 */
+.fde-page .outcomes p{font-size:16px;line-height:1.6!important}
+.fde-page .modules p{font-size:16px;line-height:1.6!important}
+.fde-page .mentor p{font-size:16px;line-height:1.85!important}
+.fde-page .tags span{font-size:16px}
+.fde-page .faq-list summary{font-size:16px;font-weight:500}
+.fde-page .faq-list p{font-size:16px;line-height:1.7!important}
+.fde-page .footer .logo__img{height:44px}
+.fde-page .footer .service__label{font-size:20px;color:#ddd}
+.fde-page .footer .service__tel{font-size:26px;color:#fff}
+.fde-page .footer .service{padding:8px 18px;border-color:#c6cfdf;display:inline-flex}
+.fde-page .footer .service__text{flex-direction:row;align-items:center;gap:8px}
+.fde-page .footer .service__icon{width:32px;height:32px}
+@media(min-width:981px){
+ .fde-page .mentor>article{padding-top:40px;padding-bottom:50px}
+ .fde-page .mentor .tags{margin-top:24px}
+ .fde-page .faq{padding-top:120px;padding-bottom:67px}
+ .fde-page .faq-list details{padding-top:23px;padding-bottom:15px}
+}
+@media(max-width:600px){.fde-page .footer .service__label{font-size:13px}.fde-page .footer .service__tel{font-size:18px}.fde-page .footer .logo__img{height:32px}}
+@media(min-width:981px){
+ .fde-page .outcomes{grid-template-rows:110px 84px 84px}
+ .fde-page .outcomes article{min-height:0;padding:12px 20px;gap:8px}
+ .fde-page .outcomes p{line-height:1.5!important}
+ .fde-page .mentor p{margin-bottom:10px}
+ .fde-page .mentor .tags{margin-top:12px}
+}
+@media(min-width:981px){.fde-page .mentor>article{padding-bottom:45px}}
+/* 按钮文字与设计稿报名条保持一致；主视觉按钮由真实链接承载。 */
+.fde-page a.btn,.fde-page .plan-foot a,.fde-page .fde-enroll a,.fde-page .hero-buy{font-weight:700}
+.fde-page .hero-buy{display:flex;align-items:center;justify-content:center;background:linear-gradient(100deg,#ffb700,#ff7e21);color:#fff;font-size:22px;line-height:1;border-radius:999px;top:75%;height:8.8%;width:7.6%}
+.fde-page .fde-enroll{padding:0;background:linear-gradient(100deg,#1e7df5,#8724ff)}
+.fde-page .fde-enroll>.wrap{min-height:126px;display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:40px;padding-block:16px}
+.fde-page .fde-enroll h3{font-size:26px;font-weight:700;line-height:1.4;color:#ffce00}
+.fde-page .fde-enroll p,.fde-page .fde-enroll small{font-size:14px;line-height:1.8;color:#ddd}
+.fde-page .fde-enroll>.wrap>div:last-child{text-align:right}
+.fde-page .fde-enroll strong{font-size:34px;line-height:1.1;color:#ffcf00;font-weight:700;text-align:right}
+.fde-page .fde-enroll>.wrap>div:last-child p{display:flex;justify-content:flex-end;gap:12px;margin-top:3px}
+.fde-page .fde-enroll a{height:44px;display:inline-flex;align-items:center;justify-content:center;padding:0 24px;font-size:22px;line-height:1;font-weight:700;background:linear-gradient(100deg,#ffce00,#ffae00);white-space:nowrap}
+.fde-page .fde-enroll__close{right:8px;top:6px;width:36px;height:36px;display:grid;place-items:center;line-height:1;font-size:24px;color:#ffffff90;padding:0}
+.consult-popover{position:fixed;z-index:250;width:220px;max-width:calc(100vw - 24px);padding:10px;background:#fff;border:1px solid #e9e9e9;border-radius:14px;box-shadow:0 10px 36px #1b2e5530}
+.consult-popover[hidden]{display:none}
+.consult-popover img{width:100%;height:auto;display:block;border-radius:8px}
+@media(max-width:980px){
+ .fde-page .hero-buy{font-size:clamp(7px,1.15vw,16px)}
+ .fde-page .fde-enroll>.wrap{min-height:110px;grid-template-columns:minmax(0,1fr) 260px;gap:20px;padding:14px 18px 14px 0}
+ .fde-page .fde-enroll h3{font-size:20px}.fde-page .fde-enroll a{height:38px;font-size:18px;padding:0 18px}
+ .fde-page .fde-enroll strong{font-size:28px}
+}
+@media(max-width:600px){
+ .fde-page .fde-enroll>.wrap{display:block;min-height:0;padding:12px 16px 12px 0}
+ .fde-page .fde-enroll h3{font-size:16px;padding-right:10px;line-height:1.4}
+ .fde-page .fde-enroll>.wrap>div:first-child p,.fde-page .fde-enroll small{display:none}
+ .fde-page .fde-enroll>.wrap>div:last-child{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:10px}
+ .fde-page .fde-enroll>.wrap>div:last-child p{margin:0;gap:8px}
+ .fde-page .fde-enroll strong{font-size:22px;white-space:nowrap}
+ .fde-page .fde-enroll a{font-size:15px;height:36px;padding:0 12px}
+ .fde-page .fde-enroll__close{right:0;top:0;width:28px;height:28px;font-size:22px}
+}
+.fde-page .fde-enroll strong>span{font-size:22px;font-weight:700}
+@media(max-width:600px){.fde-page .fde-enroll strong>span{font-size:15px}}
+/* 二维码图片已含底板：外层只定位，不再绘制第二层弹窗。 */
+.consult-popover{padding:0;background:transparent;border:0;border-radius:0;box-shadow:none}
+.consult-popover img{border-radius:0}
+/* 允许中文回退字体合成粗体，确保实际字形和金额都明显加粗。 */
+.fde-page .fde-enroll{font-synthesis:weight}
+.fde-page .fde-enroll h3,
+.fde-page .fde-enroll strong,
+.fde-page .fde-enroll strong>span,
+.fde-page .fde-enroll a{font-weight:800;font-synthesis:weight}
+/* 兼容系统中文字体缺失粗字重时的显示，保留原有字号。 */
+.fde-page .fde-enroll h3,
+.fde-page .fde-enroll strong,
+.fde-page .fde-enroll a{}
+.fde-page .fde-enroll strong{font-family:var(--font)}
+/* 咨询弹窗直接使用原设计卡片图片，不再嵌套任何底板。 */
+img.consult-popover{display:block;object-fit:contain;padding:0!important;margin:0;border:0!important;border-radius:0!important;box-shadow:none!important;background:transparent!important}
+img.consult-popover[hidden]{display:none!important}
+/* 班型名称、金额与导师标签需要真实粗体字形。 */
+.fde-page .plan header h3,.fde-page .plan header strong{font-weight:800;font-synthesis:weight;}
+.fde-page .plan header strong{font-family:var(--font)}
+.fde-page .tags span{font-weight:700;font-synthesis:weight;}
+/* 六行适合人群文字：真实16px文本，覆盖原图中的文字条。 */
+.fde-page .audience{position:relative}
+.fde-page .audience picture,.fde-page .audience picture>img{display:block;width:100%;height:auto}
+.audience-mobile-title{display:none}
+.fde-audience-list{position:absolute;left:50%;top:33.3887%;width:27.3958%;height:50.3322%;padding:0;margin:0;list-style:none;display:flex;flex-direction:column;justify-content:space-between}
+.fde-audience-list li{display:flex;align-items:center;gap:8px;width:100%;height:13.2013%;padding:0 16px;background:#fff;border-radius:4px;font-family:var(--font);font-size:16px;font-weight:400;line-height:1.5;color:#666}
+.fde-audience-list li>img{width:15px;height:15px;object-fit:contain;flex:none}
+.fde-audience-list li>span{min-width:0}
+@media(max-width:980px){
+ .fde-page .audience{padding-bottom:32px;background:#f1f5ff}
+ .fde-page .audience picture>img{max-height:360px;object-fit:cover;object-position:center 65%}
+ .fde-page .audience-mobile-title{display:block;font-size:28px;margin:24px 16px}
+ .fde-audience-list{position:static;width:auto;height:auto;display:grid;gap:12px;margin:0 24px}
+ .fde-audience-list li{height:auto;min-height:44px;padding:10px 14px;font-size:16px;line-height:1.5}
+}
+/* 16px长文案保留单行，避免末字挤到第二行。 */
+@media(min-width:981px){.fde-audience-list{width:min(560px,calc(50% - 24px))}.fde-audience-list li{white-space:nowrap}}
+/* 原图标题改为可编辑文字，按真实粗字重显示。 */
+.fde-page .fde-hero__title{position:absolute;left:10.416667%;top:11.1%;margin:0;padding:.08em 0;display:block;font-size:clamp(10px,2.5vw,48px);font-weight:700;line-height:1.5;text-align:left;white-space:nowrap;letter-spacing:0;background:linear-gradient(100deg,#168ce9,#8430f2);background-clip:text;-webkit-background-clip:text;color:transparent;z-index:1}
+/* 根据文字实际高度撑开卡片，上下各留20px，不再固定行高挤压内容。 */
+.fde-page .outcomes{grid-template-rows:auto auto auto;align-items:stretch}
+.fde-page .outcomes article,.fde-page .outcomes article:nth-child(n+3){min-height:100px;padding:20px 28px;align-items:center;gap:16px}
+.fde-page .outcomes article>div{min-width:0}
+.fde-page .outcomes h3{margin:0 0 8px;line-height:1.4}
+.fde-page .outcomes p{margin:0;line-height:1.6!important}
+/* 主视觉及底部报名按钮采用一致的水平/垂直居中规则。 */
+.fde-page .hero-buy,.fde-page .fde-enroll a{display:inline-flex;align-items:center;justify-content:center;padding-block:0;text-align:center;line-height:1.2;box-sizing:border-box}
+@media(max-width:980px){.fde-page .outcomes article,.fde-page .outcomes article:nth-child(n+3){padding:18px 20px;min-height:96px}}
